@@ -1,31 +1,36 @@
-import { Version } from '@microsoft/sp-core-library';
+import { Version } from "@microsoft/sp-core-library";
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-property-pane';
-import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
-import { escape } from '@microsoft/sp-lodash-subset';
+  PropertyPaneTextField,
+} from "@microsoft/sp-property-pane";
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { escape } from "@microsoft/sp-lodash-subset";
 
-import styles from './AzureTestWebPart.module.scss';
-import * as strings from 'AzureTestWebPartStrings';
+import styles from "./AzureTestWebPart.module.scss";
+import * as strings from "AzureTestWebPartStrings";
 
 export interface IAzureTestWebPartProps {
   description: string;
 }
 
 export default class AzureTestWebPart extends BaseClientSideWebPart<IAzureTestWebPartProps> {
-
   public render(): void {
     this.domElement.innerHTML = `
-      <div class="${ styles.azureTest }">
-        <div class="${ styles.container }">
-          <div class="${ styles.row }">
-            <div class="${ styles.column }">
-              <span class="${ styles.title }">Welcome to SharePoint!</span>
-              <p class="${ styles.subTitle }">Customize SharePoint experiences using Web Parts.</p>
-              <p class="${ styles.description }">${escape(this.properties.description)}</p>
-              <a href="https://aka.ms/spfx" class="${ styles.button }">
-                <span class="${ styles.label }">Learn more</span>
+      <div class="${styles.azureTest}">
+        <div class="${styles.container}">
+          <div class="${styles.row}">
+            <div class="${styles.column}">
+              <span class="${
+                styles.title
+              }">Welcome to SharePoint! Azure Test</span>
+              <p class="${
+                styles.subTitle
+              }">Customize SharePoint experiences using Web Parts.</p>
+              <p class="${styles.description}">${escape(
+      this.properties.description
+    )}</p>
+              <a href="https://aka.ms/spfx" class="${styles.button}">
+                <span class="${styles.label}">Learn more</span>
               </a>
             </div>
           </div>
@@ -34,7 +39,7 @@ export default class AzureTestWebPart extends BaseClientSideWebPart<IAzureTestWe
   }
 
   protected get dataVersion(): Version {
-    return Version.parse('1.0');
+    return Version.parse("1.0");
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -42,20 +47,20 @@ export default class AzureTestWebPart extends BaseClientSideWebPart<IAzureTestWe
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: strings.PropertyPaneDescription,
           },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
-            }
-          ]
-        }
-      ]
+                PropertyPaneTextField("description", {
+                  label: strings.DescriptionFieldLabel,
+                }),
+              ],
+            },
+          ],
+        },
+      ],
     };
   }
 }
