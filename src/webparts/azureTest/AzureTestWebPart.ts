@@ -22,7 +22,7 @@ export default class AzureTestWebPart extends BaseClientSideWebPart<IAzureTestWe
             <div class="${styles.column}">
               <span class="${
                 styles.title
-              }">Welcome to SharePoint! Azure Test</span>
+              }">Welcome to SharePoint! Azure Test zzzzzzzz</span>
               <p class="${
                 styles.subTitle
               }">Customize SharePoint experiences using Web Parts.</p>
